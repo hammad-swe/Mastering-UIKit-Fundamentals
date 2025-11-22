@@ -33,7 +33,7 @@ class TextfieldTutorialViewController: UIViewController {
         textfield.widthAnchor.constraint(equalToConstant: view.frame.width - 64).isActive = true
     }
     @objc func onEditingChanged(_ sender: UITextField){
-        print("Debug: Text field text \(sender.text)")
+        print("Debug: Text field text \(sender.text ?? "")")
     }
 }
 extension TextfieldTutorialViewController: UITextFieldDelegate {
