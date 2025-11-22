@@ -56,6 +56,14 @@ extension ScrollViewTutorialViewController : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("Debug: scroll offset \(scrollView.contentOffset)")
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
+        print("Debug: scroll offset did end decl...")
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool){
+        print("Debug: scroll offset did end drag...")
+    }
 }
 #Preview{
     ScrollViewTutorialViewController()
