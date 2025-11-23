@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol ActionButtonViewDelagate: AnyObject {
+    func onprimaryTap()
+    func onsecondaryTap()
+}
+
 class ActionButtonView: UIView {
 
+    weak var delagate: ActionButtonViewDelagate?
     private var primarybtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("primary Action", for: .normal)
@@ -52,13 +58,16 @@ class ActionButtonView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     @objc func handlePrimarybtnTap(){
         print("DEBUG: primary button tapped in view ...")
+        delagate?.onprimaryTap()
     }
     
     @objc func handleSecondarybtnTap(){
         print("DEBUG: secondary button tapped in view ...")
+        delagate?.onsecondaryTap()
     }
 }

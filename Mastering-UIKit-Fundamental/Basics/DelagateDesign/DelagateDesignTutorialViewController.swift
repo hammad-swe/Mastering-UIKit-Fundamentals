@@ -31,8 +31,21 @@ class DelagateDesignTutorialViewController: UIViewController {
         actionlabel.topAnchor.constraint(equalTo: actionbtnView.bottomAnchor, constant: 16).isActive = true
         
         actionlabel.text = "Primary button tapped"
+        actionlabel.isHidden = true
     }
 }
+
+extension DelagateDesignTutorialViewController: ActionButtonViewDelagate {
+    func onprimaryTap(){
+        print("DEBUG: Primary BTn tapped in view controller")
+        actionlabel.isHidden = false
+    }
+    func onsecondaryTap(){
+        print("DEBUG: Secondary BTn tapped in view controller")
+        actionlabel.isHidden = true
+    }
+}
+
 #Preview{
     DelagateDesignTutorialViewController()
 }
